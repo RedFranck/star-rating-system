@@ -1,0 +1,36 @@
+[data-srs-module="main"] {
+  position: relative;
+  width: 200px;
+  height: 40px;
+}
+[data-srs-module="main"] .srs-star-container {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+[data-srs-module="main"] .single-star {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+  padding: 0;
+  width: 20%;
+}
+[data-srs-module="main"] .single-star:focus, [data-srs-module="main"] .single-star:active {
+  outline: none;
+}
+[data-srs-module="main"] .single-star img {
+  display: block;
+  width: 100%;
+}
+[data-srs-module="main"] .srs-background-score {
+  background-color: #eaab2b;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: width 0.333s ease;
+  z-index: 0;
+}
