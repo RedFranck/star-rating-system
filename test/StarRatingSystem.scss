@@ -2,7 +2,8 @@
 // To set custom style, go to the section at the end of document
 
 // vars
-$starColor: #eaab2b;
+$starColor: #e95d4f;
+$starEmptyColor: #cccccc;
 
 @mixin clearfix {
 	&:before,
@@ -21,6 +22,16 @@ $starColor: #eaab2b;
 [data-srs-module="main"] {
 	position: relative;
 	width: 200px;
+
+	&:before {
+		background-color: $starEmptyColor;
+		content: '';
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 
 	.srs-star-container {
 		@include clearfix;
@@ -58,14 +69,5 @@ $starColor: #eaab2b;
 		z-index: 0;
 	}
 
-
-
-
-
-
-	//=== Custom style goes here =================================
-	//============================================================
-
-	// custom style ...
 
 }
