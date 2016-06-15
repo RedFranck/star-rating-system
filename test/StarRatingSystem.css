@@ -2,6 +2,15 @@
   position: relative;
   width: 200px;
 }
+[data-srs-module="main"]:before {
+  background-color: #cccccc;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 [data-srs-module="main"] .srs-star-container {
   position: relative;
   width: 100%;
@@ -31,7 +40,7 @@
   width: 100%;
 }
 [data-srs-module="main"] .srs-background-score {
-  background-color: #eaab2b;
+  background-color: #e95d4f;
   height: 100%;
   left: 0;
   position: absolute;
