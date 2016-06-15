@@ -1,13 +1,18 @@
 [data-srs-module="main"] {
   position: relative;
   width: 200px;
-  height: 40px;
 }
 [data-srs-module="main"] .srs-star-container {
-  height: 100%;
   position: relative;
   width: 100%;
   z-index: 1;
+}
+[data-srs-module="main"] .srs-star-container:before, [data-srs-module="main"] .srs-star-container:after {
+  content: ' ';
+  display: table;
+}
+[data-srs-module="main"] .srs-star-container:after {
+  clear: both;
 }
 [data-srs-module="main"] .single-star {
   background: none;

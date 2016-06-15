@@ -4,15 +4,26 @@
 // vars
 $starColor: #eaab2b;
 
+@mixin clearfix {
+	&:before,
+	&:after {
+		content: ' ';
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
 //=== Default Style ==========================================
 //============================================================
 [data-srs-module="main"] {
 	position: relative;
 	width: 200px;
-	height: 40px;
 
 	.srs-star-container {
-		height: 100%;
+		@include clearfix;
 		position: relative;
 		width: 100%;
 		z-index: 1;
