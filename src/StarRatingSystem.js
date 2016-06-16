@@ -28,7 +28,7 @@ Module.StarRatingSystem = (function($) {
 		fireEvent : function (key, args) {
 			if (this.listeners[key]) {
 				for( var i = 0, len = this.listeners[key].length; i < len; i++) {
-					this.listeners[key][i].call(args);
+					this.listeners[key][i].apply(null, args);
 				}
 			}
 		},
@@ -44,7 +44,7 @@ Module.StarRatingSystem = (function($) {
 			this.el_moduleContainer = $('<div class="srs-container" data-srs-module="main"></div>');
 			this.el_backgroundScore = $('<div class="srs-background-score" data-srs-handle="background-score"></div>');
 			this.el_starContainer = this.createStarContainer();
-			
+
 			this.el_moduleContainer.append(this.el_starContainer);
 			this.el_moduleContainer.append(this.el_backgroundScore);
 
@@ -52,7 +52,7 @@ Module.StarRatingSystem = (function($) {
 			this.setScore(options.defaultScore);
 
 			this.el_starContainer.on('click', '[data-srs-action="rate"]', this.handleStarClick.bind(this));
-			
+
 			this.el_moduleParent.append(this.el_moduleContainer);
 		},
 
@@ -81,9 +81,11 @@ Module.StarRatingSystem = (function($) {
 
 
 		handleStarClick : function(e) {
+			e.preventDefault();
+
 			var el_currentStar = $(e.currentTarget);
 			var score = (el_currentStar.index() + 1) / (el_currentStar.siblings().length + 1);
-			this.fireEvent('scoreUpdated', [score]);
+			this.fireEvent('scoreUpdated', [this, score]);
 			this.setScore(score);
 		},
 
