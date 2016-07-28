@@ -34,7 +34,7 @@ Module.StarRatingSystem = (function($) {
 		},
 
 		setScore : function (score) {
-			this.el_backgroundScore.width((score * 100) + '%');
+			this.el_backgroundScore.outerWidth((score * 100) + '%');
 		},
 
 		init : function(container, userOptions) {
@@ -92,7 +92,7 @@ Module.StarRatingSystem = (function($) {
 
 		setDynamicStyle : function() {
 			var el_stars = this.el_starContainer.find('.single-star');
-			el_stars.width( (100/el_stars.length) + '%');
+			el_stars.outerWidth( (100/el_stars.length) + '%');
 		}
 	};
 
