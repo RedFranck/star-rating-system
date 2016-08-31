@@ -51,7 +51,11 @@ Module.StarRatingSystem = (function($) {
 			this.setDynamicStyle();
 			this.setScore(options.defaultScore);
 
-			this.el_starContainer.on('click', '[data-srs-action="rate"]', this.handleStarClick.bind(this));
+			if (options.clickEnabled === true) {
+				this.el_starContainer.on('click', '[data-srs-action="rate"]', this.handleStarClick.bind(this));
+			} else if (options.clickEnabled === 'once') {
+				this.el_starContainer.one('click', '[data-srs-action="rate"]', this.handleStarClick.bind(this));
+			}
 
 			this.el_moduleParent.append(this.el_moduleContainer);
 		},
@@ -62,7 +66,8 @@ Module.StarRatingSystem = (function($) {
 			var defaults = {
 				defaultScore: 0, // (float) between 0 and 1, set the defaults score displayed
 				maxStar: 5, // (int) Set the maximum number of stars
-				starImageLocation: 'StarRatingSystem_star.png',
+				starImageLocation: 'StarRatingSystem_star.png', // location of the star image
+				clickEnabled: true, // handle the click behaviour: true will allows clicks, false will not, 'once' will allows it only once
 			};
 
 			return $.extend(true, defaults, userOptions);

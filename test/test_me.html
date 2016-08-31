@@ -18,7 +18,7 @@
 			var init = function() {
 				if (Module && Module.StarRatingSystem) {
 					var mod1 = new Module.StarRatingSystem($('#SRS'), {defaultScore: 0.75});
-					var mod2 = new Module.StarRatingSystem($('#SRS2'), {defaultScore: 0.35, maxStar: 8});
+					var mod2 = new Module.StarRatingSystem($('#SRS2'), {defaultScore: 0.35, maxStar: 8, clickEnabled:'once'});
 				} else {
 					setTimeout(function() {
 						init();
